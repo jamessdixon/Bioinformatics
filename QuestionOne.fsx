@@ -9,4 +9,19 @@ let patternCount (text:string) (pattern:string) =
 let text = "ACAACTCTGCATACTATCGGGAACTATCCT"
 let pattern = "ACTAT"
 
-patternCount text pattern
+//patternCount text pattern
+
+open System
+
+let getRandomNuclotide () =
+    let dictionary = ["A";"C";"G";"T"]
+    let random = Random()
+    dictionary.[random.Next(4)]
+
+let getRandomSequence (length:int) =
+    let nuclotides = [ for i in 0 .. length -> getRandomNuclotide() ]
+    String.Join("", nuclotides)
+
+let largerText = getRandomSequence 10000000
+
+patternCount largerText pattern
