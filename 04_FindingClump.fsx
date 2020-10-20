@@ -1,17 +1,15 @@
 
-#r "C:\\Users\\DIXON2019\\.nuget\\packages\\fsharp.collections.parallelseq\\1.1.2\\lib\\net45\\FSharp.Collections.ParallelSeq.dll"
 
 open System
 open System.IO
-open FSharp.Collections.ParallelSeq
 
 let patternCount (nuclotides: string) (pattern: string) =
     let patternSize = pattern.Length
     nuclotides
     |> Seq.windowed patternSize
-    |> PSeq.map(fun c -> new string(c))
-    |> PSeq.filter(fun c ->  c = pattern)
-    |> PSeq.length
+    |> Seq.map(fun c -> new string(c))
+    |> Seq.filter(fun c ->  c = pattern)
+    |> Seq.length
 
 let getClump (genome:string) idx oriSize =
     if idx%oriSize=0 then 
@@ -23,14 +21,14 @@ let getClump (genome:string) idx oriSize =
 
 let clumpFinding (clumps: string seq) (pattern: string) =
     clumps
-    |> PSeq.mapi(fun idx c ->  idx, (patternCount c pattern))
+    |> Seq.mapi(fun idx c ->  idx, (patternCount c pattern))
     |> Seq.sortByDescending(fun (i,c) -> c)
 
 let getClumps (genome:string) (oriSize: int)=
     genome
-    |> PSeq.mapi(fun idx c -> getClump genome idx oriSize)
-    |> PSeq.filter(fun v -> v.IsSome)
-    |> PSeq.map(fun v -> v.Value)
+    |> Seq.mapi(fun idx c -> getClump genome idx oriSize)
+    |> Seq.filter(fun v -> v.IsSome)
+    |> Seq.map(fun v -> v.Value)
     |> Seq.toArray
 
 

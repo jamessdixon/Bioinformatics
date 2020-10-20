@@ -20,20 +20,3 @@ let nuclotides = String.Join("", baseNuclotides)
 #time
 let sequentialCounts = patternCount nuclotides pattern
 sequentialCounts
-
-
-
-#r "C:\\Users\\DIXON2019\\.nuget\\packages\\fsharp.collections.parallelseq\\1.1.2\\lib\\net45\\FSharp.Collections.ParallelSeq.dll"
-
-open System
-open FSharp.Collections.ParallelSeq
-
-let parallelPatternCount (text:string) (pattern:string) =
-    text 
-    |> Seq.windowed pattern.Length 
-    |> PSeq.map(fun c -> new string(c))
-    |> PSeq.filter(fun s -> s = pattern)
-    |> PSeq.length
-
-let parallelCounts = parallelPatternCount nuclotides pattern
-parallelCounts
