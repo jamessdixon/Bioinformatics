@@ -31,7 +31,6 @@ let getClumps (genome:string) (oriSize: int)=
     |> Seq.map(fun v -> v.Value)
     |> Seq.toArray
 
-
 let fileName = "Vibrio_Cholerea.txt"
 let genome = File.ReadAllText(fileName)
 let oriSize = 500
