@@ -1,6 +1,6 @@
 
-//#r "C:\\Users\\DIXON2019\\.nuget\\packages\\fsharp.collections.parallelseq\\1.1.2\\lib\\net45\\FSharp.Collections.ParallelSeq.dll"
-#r "/Users/jamesdixon/.nuget/packages/fsharp.collections.parallelseq/1.1.2/lib/net45/FSharp.Collections.ParallelSeq.dll"
+#r "C:\\Users\\DIXON2019\\.nuget\\packages\\fsharp.collections.parallelseq\\1.1.2\\lib\\net45\\FSharp.Collections.ParallelSeq.dll"
+//#r "/Users/jamesdixon/.nuget/packages/fsharp.collections.parallelseq/1.1.2/lib/net45/FSharp.Collections.ParallelSeq.dll"
 
 open System
 open FSharp.Collections.ParallelSeq
@@ -17,6 +17,7 @@ let patternCount (text:string) (pattern:string) =
     |> PSeq.filter(fun s -> s = pattern)
     |> PSeq.length
 
+#time
 let pattern = "ACTAT"
 let functionalCounts = patternCount nuclotides pattern
 functionalCounts
