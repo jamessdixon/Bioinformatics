@@ -31,10 +31,11 @@ let getClumps (genome:string) (oriSize: int)=
     |> Seq.map(fun v -> v.Value)
     |> Seq.toArray
 
-let fileName = "Vibrio_Cholerea.txt"
+//let fileName = "Vibrio_Cholerea.txt"
+let fileName = @"D:\Git\Bioinformatics.fs\Vibrio_Cholerea.txt"
 let genome = File.ReadAllText(fileName)
-let oriSize = 500
-let clumps = getClumps genome oriSize
+let clumpSize = 500
+let clumps = getClumps genome clumpSize
 let pattern = "ATGATCAAG"
 let foundClumps = clumpFinding clumps pattern
 
