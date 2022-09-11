@@ -1,5 +1,4 @@
 
-
 open System
 open System.IO
 
@@ -28,19 +27,12 @@ let frequentWords (text:string) (k:int) =
     |> Seq.map(fun (s,c) -> s,c, reverseCompliment s)
     |> Seq.map(fun (s,c,r) -> s,c, patternCounts |> Seq.find(fun (s,c) -> s = r))
 
-let fileName = "Ori.txt"
+let fileName = @"/Users/jamesdixon/Projects/Bioinformatics/Ori.txt"
 let ori = File.ReadAllText(fileName)
 
 [3..9]
 |> Seq.map(fun i -> i, frequentWords ori i)
 |> Seq.iter(fun x -> printfn "%A" x)
 
-//42
-//19
-//16,16
-//16
-//9
-//7
-//6,4
 
 

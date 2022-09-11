@@ -28,7 +28,7 @@ let approximatePatternCount (text:string) (pattern:string) (d:int) =
     |> Seq.filter(fun x -> x = true)
     |> Seq.length
 
-let fileName = "Vibrio_Cholerea.txt"
+let fileName = @"/Users/jamesdixon/Projects/Bioinformatics/Vibrio_Cholerea.txt"
 let text = File.ReadAllText(fileName)
 let pattern = "ATGATCAAG"
 let result = approximatePatternCount text pattern 9

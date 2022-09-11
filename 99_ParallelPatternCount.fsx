@@ -1,6 +1,5 @@
 
-#r "C:\\Users\\DIXON2019\\.nuget\\packages\\fsharp.collections.parallelseq\\1.1.2\\lib\\net45\\FSharp.Collections.ParallelSeq.dll"
-//#r "/Users/jamesdixon/.nuget/packages/fsharp.collections.parallelseq/1.1.2/lib/net45/FSharp.Collections.ParallelSeq.dll"
+#r "nuget: FSharp.Collections.ParallelSeq"
 
 open System
 open FSharp.Collections.ParallelSeq
@@ -22,5 +21,6 @@ let pattern = "ACTAT"
 let functionalCounts = patternCount nuclotides pattern
 functionalCounts
 
-//Real: 00:00:12.710, CPU: 00:00:12.703, GC gen0: 1722, gen1: 2, gen2: 1
-//Real: 00:00:06.951, CPU: 00:00:12.818, GC gen0: 1728, gen1: 1, gen2: 0
+//Real: 00:00:06.946, CPU: 00:00:07.194, GC gen0: 1721, gen1: 3, gen2: 0
+//Real: 00:00:05.902, CPU: 00:00:11.017, GC gen0: 1732, gen1: 0, gen2: 0
+

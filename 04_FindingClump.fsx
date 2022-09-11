@@ -19,11 +19,6 @@ let getClump (genome:string) idx oriSize =
             Some(genome.Substring(idx,oriSize)) 
     else None
 
-let clumpFinding (clumps: string seq) (pattern: string) =
-    clumps
-    |> Seq.mapi(fun idx c ->  idx, (patternCount c pattern))
-    |> Seq.sortByDescending(fun (i,c) -> c)
-
 let getClumps (genome:string) (oriSize: int)=
     genome
     |> Seq.mapi(fun idx c -> getClump genome idx oriSize)
@@ -31,8 +26,12 @@ let getClumps (genome:string) (oriSize: int)=
     |> Seq.map(fun v -> v.Value)
     |> Seq.toArray
 
-//let fileName = "Vibrio_Cholerea.txt"
-let fileName = @"D:\Git\Bioinformatics.fs\Vibrio_Cholerea.txt"
+let clumpFinding (clumps: string seq) (pattern: string) =
+    clumps
+    |> Seq.mapi(fun idx c ->  idx, (patternCount c pattern))
+    |> Seq.sortByDescending(fun (i,c) -> c)
+
+let fileName = @"/Users/jamesdixon/Projects/Bioinformatics/Vibrio_Cholerea.txt"
 let genome = File.ReadAllText(fileName)
 let clumpSize = 500
 let clumps = getClumps genome clumpSize

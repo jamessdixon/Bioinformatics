@@ -8,8 +8,8 @@ let patternCount (text:string) (pattern:string) =
     |> Seq.filter(fun s -> s = pattern)
     |> Seq.length
 
-let text = "ACAACTCTGCATACTATCGGGAACTATCCT"
-let pattern = "ACTAT"
+let text = "ACAACTCTGCATACATCGGGAACATCCT"
+let pattern = "ACAT"
 patternCount text pattern
 
 let random = new Random(42)

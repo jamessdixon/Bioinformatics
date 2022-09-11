@@ -13,10 +13,8 @@ let frequentWords (text:string) (k:int) =
     let maxCount = patternCounts |> Seq.head |> snd
     patternCounts 
         |> Seq.filter(fun (s,c) -> c = maxCount)
-        //|> PSeq.map(fun (s,c) -> s)
 
-//let fileName = @"D:\Git\Bioinformatics.fs\Ori.txt"
-let fileName = "Ori.txt"
+let fileName = @"/Users/jamesdixon/Projects/Bioinformatics/Ori.txt"
 let ori = File.ReadAllText(fileName)
 
 [3..9]
